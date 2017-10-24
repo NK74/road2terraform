@@ -1,14 +1,12 @@
 provider "aws" {
-  access_key = "xx"
-  secret_key = "xxXz9"
-  region     = "eu-west-1"
+  region = "eu-west-1"
 }
 
 resource "aws_vpc" "vpcvalentin" {
-    cidr_block        = "172.23.0.0/16"
-    
- tags {
-   Name = "VPC-Valentin"
+  cidr_block = "172.23.0.0/16"
+
+  tags {
+    Name = "VPC-Valentin"
   }
 }
 
@@ -41,6 +39,7 @@ resource "aws_route_table" "Routetable" {
     cidr_block = "0.0.0.0/0"
     gateway_id = "${aws_internet_gateway.igw.id}"
   }
+
   tags {
     Name = "Route to IGW"
   }
@@ -50,4 +49,3 @@ resource "aws_main_route_table_association" "RouteAssociation" {
   vpc_id         = "${aws_vpc.vpcvalentin.id}"
   route_table_id = "${aws_route_table.Routetable.id}"
 }
-
