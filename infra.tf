@@ -28,7 +28,7 @@ resource "aws_subnet" "subnet2" {
   cidr_block = "172.23.1.0/24"
 
   tags {
-    Name = "Subnet gauche"
+    Name = "Subnet droit"
   }
 }
 
